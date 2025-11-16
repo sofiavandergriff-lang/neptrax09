@@ -1,7 +1,11 @@
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
-export default function FAQs() {
+interface FAQsProps {
+  onNavigate: (section: string) => void;
+}
+
+export default function FAQs({ onNavigate }: FAQsProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs = [
@@ -107,12 +111,12 @@ export default function FAQs() {
           <p className="text-[#94a3b8] mb-6">
             We're here to help. Reach out and we'll get back to you promptly.
           </p>
-          <a
-            href="#contact"
+          <button
+            onClick={() => onNavigate('contact')}
             className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-[#2563eb] to-[#1e3a8a] text-[#f1f5f9] font-medium hover:scale-105 hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all"
           >
             Contact Us
-          </a>
+          </button>
         </div>
       </div>
     </div>

@@ -42,7 +42,7 @@ function App() {
       case 'security':
         return <Security />;
       case 'faqs':
-        return <FAQs />;
+        return <FAQs onNavigate={handleNavigate} />;
       default:
         return <Home onNavigate={handleNavigate} />;
     }

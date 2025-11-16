@@ -23,6 +23,11 @@ export default function Services({ onNavigate }: ServicesProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const servicesGridRef = useRef<HTMLDivElement>(null);
+
+  const handleDiscoverClick = () => {
+    servicesGridRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   useEffect(() => {
     setTimeout(() => setIsLoaded(true), 300);
@@ -186,11 +191,11 @@ export default function Services({ onNavigate }: ServicesProps) {
 
           <div className="flex gap-6 justify-center flex-wrap">
             <button
-              onClick={() => onNavigate('contact')}
+              onClick={handleDiscoverClick}
               className="group relative px-12 py-4 rounded-full bg-transparent border-2 border-cyan-400/50 text-white font-semibold text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/25 backdrop-blur-sm"
             >
               <span className="relative z-10 flex items-center gap-2">
-                <span>Start Your Project</span>
+                <span>Discover</span>
                 <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
@@ -200,8 +205,12 @@ export default function Services({ onNavigate }: ServicesProps) {
       </section>
 
       {/* Services Grid Section */}
-      <section className="relative py-24 bg-gradient-to-b from-[#0a0a0a] to-[#0f172a]">
+      <section ref={servicesGridRef} className="relative py-24 bg-gradient-to-b from-[#0a0a0a] to-[#0f172a]">
         <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12 reveal-heading">
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">Explore our Service</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {servicesList.map((service, index) => {
               const Icon = service.icon;
@@ -422,6 +431,24 @@ export default function Services({ onNavigate }: ServicesProps) {
         /* ============================================
            KEYFRAME ANIMATIONS
            ============================================ */
+
+        /* Reveal heading animation */
+        @keyframes reveal-heading {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+            filter: blur(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+          }
+        }
+
+        .reveal-heading {
+          animation: reveal-heading 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
 
         /* Hero text glow animation */
         @keyframes glow-text {

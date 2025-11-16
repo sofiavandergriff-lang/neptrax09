@@ -54,7 +54,7 @@ export default function About() {
           ))}
         </div>
 
-        <div className="bg-gradient-to-br from-[#0f172a] to-[#1e3a8a] rounded-2xl p-12 text-center">
+        <div className="bg-gradient-to-br from-[#0f172a] to-[#1e3a8a] rounded-2xl p-12 text-center mb-16">
           <h2
             className="text-3xl font-bold text-[#f1f5f9] mb-4"
           >
@@ -85,6 +85,20 @@ export default function About() {
                 With 100+ successful projects and 50+ verified reviews, our track record speaks for itself. We deliver websites that drive real business growth.
               </p>
             </div>
+          </div>
+        </div>
+
+        <div className="bg-[#1e293b] rounded-2xl p-12">
+          <h2 className="text-3xl font-bold text-[#f1f5f9] mb-6">
+            Based in Chicago, USA
+          </h2>
+          <div className="space-y-4 text-[#94a3b8] text-lg leading-relaxed">
+            <p>
+              We're proudly based in Chicago, serving clients across the U.S. and beyond. Since 2018, we've been helping businesses turn ideas into real digital growth. Over the years, we've partnered with startups, agencies, and established brands to create modern, high-performance solutions that actually move the needle.
+            </p>
+            <p>
+              Rooted in Chicago's culture of innovation and hard work, our team is focused on delivering reliable service, clear communication, and results you can measure. Whether you're building something new or improving what you already have, we're here to support your business every step of the way.
+            </p>
           </div>
         </div>
       </div>
